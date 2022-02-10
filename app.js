@@ -7,6 +7,10 @@ dotenv.config();
 const PORT = process.env.PORT;
 const app = express();
 
+// Middlewares
+app.use(cors());
+app.use(express.json());
+
 // connecting mongoDB
 mongoose
   .connect(process.env.MONGODB_URI, {
@@ -20,10 +24,6 @@ mongoose
     app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));
   })
   .catch((err) => console.log(err));
-
-// Middlewares
-app.use(cors());
-app.use(express.json());
 
 // Controllers
 import {
