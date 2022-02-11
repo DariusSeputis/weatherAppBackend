@@ -8,7 +8,7 @@ export const searchedLocationController = (req, res) => {
   const newLocation = new SearchedLocationModel(req.body);
   newLocation
     .save()
-    .then((data) => res.status(200))
+    .then((data) => res.status(200).send('succesful'))
     .catch((err) => console.log(err));
 };
 
@@ -17,6 +17,6 @@ export const currentWeatherController = (req, res) => {
   const newWeather = new CurrentWeatherModel(req.body);
   newWeather
     .save()
-    .then((data) => res.status(200))
+    .then((data) => res.status(200).send('succesful'))
     .catch((err) => console.log(err));
 };
